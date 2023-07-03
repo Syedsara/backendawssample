@@ -13,6 +13,8 @@ const pool = new Pool({
 });
  
 app.use(cors());
+
+
  
 app.get("/api/patients", async (req: Request, res: Response) => {
  try {

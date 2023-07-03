@@ -1,10 +1,10 @@
 import psycopg2
 
 connection = psycopg2.connect(
-host='localhost',
-database='sql_demo',
+host='database-1.cqctcaoncjfc.us-east-1.rds.amazonaws.com',
+database='postgres',
 user='postgres',
-password='sara'
+password='Sara12khan'
 )
 
 cursor = connection.cursor()
