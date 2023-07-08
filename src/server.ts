@@ -6,9 +6,9 @@ const app = express();
 const port = 3001;
 const pool = new Pool({
  user: "postgres",
- host: "localhost",
- database: "sql_demo",
- password: "sara",
+ host: "database-1.cqctcaoncjfc.us-east-1.rds.amazonaws.com",
+ database: "postgres",
+ password: "Sara12khan",
  port: 5432,
 });
  
