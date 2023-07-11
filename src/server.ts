@@ -27,6 +27,25 @@ app.get("/api/patients", async (req: Request, res: Response) => {
  res.status(500).json({ error: "Internal server error" });
  }
 });
+app.delete("/api/patients/:id", async (req: Request, res: Response) => {
+    const id = req.params.id;
+  
+    try {
+      const query = "DELETE FROM patients WHERE id = $1";
+      const result = await pool.query(query, [id]);
+  
+      if (result.rowCount === 0) {
+        // No rows were affected, meaning the ID doesn't exist in the database
+        return res.status(404).json({ error: "Patient not found" });
+      }
+  
+      return res.json({ message: "Patient deleted successfully" });
+    } catch (error) {
+      console.error("Error deleting patient:", error);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+  });
+
  
 app.listen(port, () => {
  console.log(`Server is running on port ${port}`);
